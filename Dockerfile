@@ -1,10 +1,10 @@
 # Start from golang base image
 FROM golang:alpine as builder
 
-# ENV GO111MODULE=on
+ENV GO111MODULE=on
 
 # Add Maintainer info
-LABEL maintainer=""
+LABEL maintainer="Igor Ariza <igorariza@gmail.com>"
 
 # Install git.
 # Git is required for fetching the dependencies.
