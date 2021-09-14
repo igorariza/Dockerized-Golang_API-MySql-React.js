@@ -1,0 +1,40 @@
+version: "3.8"
+
+services: 
+    backend:
+          container_name: "rest_api"
+          restart: on-failure
+          build: 
+            context: .
+            dockerfile: Dockerfile
+          ports:
+            - 8000:8080
+          volumes:
+            - api:/usr/src/app/
+          depends_on: 
+            - db
+          networks: 
+            - fullstack
+    db:
+          image: mysql:5.7.22
+          container_name: "database"
+          restart: always
+          environment: 
+               MYSQL_DATABASE: admin
+               MYSQL_USER: root
+               MYSQL_PASSWORD: root
+               MYSQL_ROOT_PASSWORD: "admin"
+          volumes: 
+              - .dbdata:/var/lib/mysql
+          ports: 
+              - 33066:3306
+          networks: 
+              - fullstack
+
+volumes:
+  backend: 
+  api:
+
+networks: 
+  fullstack:
+    driver: bridge
