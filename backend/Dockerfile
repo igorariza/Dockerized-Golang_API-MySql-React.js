@@ -39,4 +39,5 @@ COPY --from=builder /app/.env .
 EXPOSE 8000
 
 #Command to run the executable
+ENTRYPOINT [ "/bin/bash", "entrypoint.sh" ]
 CMD ["./main"]

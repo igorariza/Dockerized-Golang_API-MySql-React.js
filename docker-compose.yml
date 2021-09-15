@@ -5,12 +5,12 @@ services:
           container_name: "rest_api"
           restart: on-failure
           build: 
-            context: .
+            context: "./backend"
             dockerfile: Dockerfile
           ports:
             - 8000:8080
           volumes:
-            - api:/usr/src/app/
+            - ./backend/api:/usr/src/app/
           depends_on: 
             - db
           networks: 
@@ -25,11 +25,42 @@ services:
                MYSQL_PASSWORD: root
                MYSQL_ROOT_PASSWORD: "admin"
           volumes: 
-              - .dbdata:/var/lib/mysql
+              - ./backend/.dbdata:/var/lib/mysql
+              - ./init-script.sql:/docker-entrypoint-initdb.d/init-script.sql
           ports: 
               - 33066:3306
           networks: 
               - fullstack
+    nginx:
+          image: nginx
+          container_name: "nginx"
+          depends_on:
+            - backend
+          restart: always
+          build:
+            dockerfile: Dockerfile
+            context: ./nginx
+          ports:
+            - "3050:80"
+          networks: 
+              - fullstack
+    # frontend:
+    #       image: node
+    #       container_name: "frontend"
+    #       stdin_open: true
+    #       environment:
+    #         - CHOKIDAR_USEPOLLING=true
+    #       build:
+    #         dockerfile: Dockerfile
+    #         context: ./frontend
+    #       depends_on:
+    #         - backend
+    #       restart: always
+    #       volumes:
+    #         - /app/node_modules
+    #         - ./frontend:/app
+    #       networks: 
+    #           - fullstack
 
 volumes:
   backend: 

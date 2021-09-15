@@ -20,6 +20,7 @@
 *.mdb
 *.pdb
 *.sqlite3
+*.dbdata
 
 ### Git ###
 # Created by git for backups. To disable backups in Git:
