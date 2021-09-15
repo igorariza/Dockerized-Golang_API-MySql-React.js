@@ -1,0 +1,3 @@
+CREATE DATABASE admin;
+GO
+USE DB_NAME;
