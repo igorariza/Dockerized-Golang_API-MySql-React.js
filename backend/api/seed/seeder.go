@@ -14,6 +14,7 @@ var users = []models.User{
 		Position:  "Position",
 		Nation:    "Nation",
 		Club:      "Club",
+		Page:      "Page",
 	},
 	models.User{
 		Firstname: "Firstname2",
@@ -21,6 +22,7 @@ var users = []models.User{
 		Position:  "Position2",
 		Nation:    "Nation2",
 		Club:      "Club2",
+		Page:      "Page2",
 	},
 }
 
