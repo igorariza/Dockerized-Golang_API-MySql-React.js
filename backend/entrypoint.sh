@@ -1,27 +1,29 @@
-#!/bin/bash
+#!/bin/sh
 set -e
+# baseName="admin"
+# tableName="users"
+# FRT_NAME =""
+# LST_NAME =""
+# PL_POSITION =""
+# PL_NATION=""
+# myslqquery=""
+# TOTAL_PAGES=$(curl -s https://www.easports.com/fifa/ultimate-team/api/fut/item | jq -r .totalPages)
+# for i in $TOTAL_PAGES
+#     do
+#         ITEMS=$(curl -s https://www.easports.com/fifa/ultimate-team/api/fut/item?page= $i | jq -r ' .items ')
+#         for j in ITEMS 
+#             do 
+#                 $FRT_NAME = "${ITEMS}"  | jq -r   ' .[] | .firstName'
+#                 $LST_NAME  = "${ITEMS}"  | jq -r   ' .[] | .lastName'
+#                 $PL_POSITION  = "${ITEMS}"  | jq -r   ' .[] | .position'
+#                 $PL_NATION    = "${ITEMS}"  | jq -r   ' .[] | .nation.abbrName'
+                
+#                 $myslqquery="USE $baseName;
+#                              INSERT INTO $tableName ('firstname', 'lastname', 'position', 'nation' )VALUES(\"$FRT_NAME\",\"$LST_NAME\",\"$PL_POSITION\", ,\"$PL_NATION\");
+#                              SELECT * from $tableName;"
+#                 mysql -u root -e "$myslqquery"
 
-# if [ "$1" = '/opt/mssql/bin/sqlservr' ]; then
-#   # If this is the container's first run, initialize the application database
-#   if [ ! -f /tmp/app-initialized ]; then
-#     # Initialize the application database asynchronously in a background process. This allows a) the SQL Server process to be the main process in the container, which allows graceful shutdown and other goodies, and b) us to only start the SQL Server process once, as opposed to starting, stopping, then starting it again.
-#     function initialize_app_database() {
-#       # Wait a bit for SQL Server to start. SQL Server's process doesn't provide a clever way to check if it's up or not, and it needs to be up before we can import the application database
-#       sleep 15s
-
-#       #run the setup script to create the DB and the schema in the DB
-#       /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Your_password123 -d master -i setup.sql
-
-#       # Note that the container has been initialized so future starts won't wipe changes to the data
-#       touch /tmp/app-initialized
-#     }
-#     initialize_app_database &
-#   fi
-# fi
-echo "welcome to the script"
-result=$(curl -X GET --header "Accept: */*" "https://www.easports.com/fifa/ultimate-team/api/fut/item?page=2")
-echo "Response from server"
-echo $result
-#exit
+#         done   
+# done
 
 exec "$@"

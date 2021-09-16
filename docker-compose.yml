@@ -2,6 +2,7 @@ version: "3.8"
 
 services: 
     backend:
+          image: ubuntu
           container_name: "rest_api"
           restart: on-failure
           build: 
@@ -29,19 +30,6 @@ services:
               - ./init-script.sql:/docker-entrypoint-initdb.d/init-script.sql
           ports: 
               - 33066:3306
-          networks: 
-              - fullstack
-    nginx:
-          image: nginx
-          container_name: "nginx"
-          depends_on:
-            - backend
-          restart: always
-          build:
-            dockerfile: Dockerfile
-            context: ./nginx
-          ports:
-            - "3050:80"
           networks: 
               - fullstack
     # frontend:

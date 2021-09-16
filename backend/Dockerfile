@@ -26,8 +26,11 @@ COPY . .
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main .
 
 # Start a new stage from scratch
-FROM alpine:latest
+FROM alpine:3.4
 RUN apk --no-cache add ca-certificates
+RUN apk update && apk add bash
+RUN /bin/sh -c "apk add --no-cache bash"
+RUN apk --no-cache add curl jq
 
 WORKDIR /root/
 
@@ -38,6 +41,9 @@ COPY --from=builder /app/.env .
 # Expose port 8080 to the outside world
 EXPOSE 8000
 
+COPY entrypoint.sh ./entrypoint.sh
+
 #Command to run the executable
-ENTRYPOINT [ "/bin/bash", "entrypoint.sh" ]
+ENTRYPOINT [ "/bin/sh", "./entrypoint.sh" ]
 CMD ["./main"]
+

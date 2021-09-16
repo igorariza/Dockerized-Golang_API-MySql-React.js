@@ -8,9 +8,6 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
-// nombre del jugador, la posición en que juega, su nacionalidad y el nombre del
-// equipo al que pertenece.
-
 type User struct {
 	ID        uint32 `gorm:"PRIMARY_KEY;AUTO_INCREMENT" json:"id"`
 	Firstname string `gorm:"size:255" json:"firstName"`
@@ -18,6 +15,7 @@ type User struct {
 	Position  string `gorm:"size:100;" json:"position"`
 	Nation    string `gorm:"size:100;" json:"nation:abbrName"`
 	Club      string `gorm:"size:100;" json:"club:abbrName"`
+	Page      string `gorm:"size:100;" json:"page"`
 }
 
 func (u *User) Prepare() {
@@ -27,6 +25,7 @@ func (u *User) Prepare() {
 	u.Position = html.EscapeString(strings.TrimSpace(u.Position))
 	u.Nation = html.EscapeString(strings.TrimSpace(u.Nation))
 	u.Club = html.EscapeString(strings.TrimSpace(u.Club))
+	u.Page = html.EscapeString(strings.TrimSpace(u.Page))
 }
 
 func (u *User) Validate(action string) error {
@@ -47,6 +46,9 @@ func (u *User) Validate(action string) error {
 		if u.Club == "" {
 			return errors.New("Required Club")
 		}
+		if u.Page == "" {
+			return errors.New("Required Page")
+		}
 
 		return nil
 
@@ -65,6 +67,9 @@ func (u *User) Validate(action string) error {
 		}
 		if u.Club == "" {
 			return errors.New("Required Club")
+		}
+		if u.Page == "" {
+			return errors.New("Required Page")
 		}
 		return nil
 	}
