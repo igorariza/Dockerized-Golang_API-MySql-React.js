@@ -6,11 +6,10 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
+	"github.com/igorariza/Dockerized-Golang_API-MySql-React.js/api/models"
 	"github.com/jinzhu/gorm"
 
 	_ "github.com/jinzhu/gorm/dialects/mysql" //mysql database driver
-
-	"github.com/igorariza/Dockerized-Golang_API-MySql-React.js/api/models"
 )
 
 type Server struct {

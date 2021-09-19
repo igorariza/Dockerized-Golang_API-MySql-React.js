@@ -33,7 +33,6 @@ services:
           networks: 
               - fullstack
     # frontend:
-    #       image: node
     #       container_name: "frontend"
     #       stdin_open: true
     #       environment:
@@ -43,16 +42,21 @@ services:
     #         context: ./frontend
     #       depends_on:
     #         - backend
+    #       ports:
+    #         - 3000:3000
     #       restart: always
-    #       volumes:
+    #       volumes:         
+    #         - /frontend/node_modules
     #         - /app/node_modules
     #         - ./frontend:/app
+    #       command: npm run start
     #       networks: 
     #           - fullstack
 
 volumes:
   backend: 
   api:
+  frontend:
 
 networks: 
   fullstack:

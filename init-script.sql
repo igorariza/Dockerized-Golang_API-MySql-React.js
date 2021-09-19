@@ -1,4 +1,2 @@
-DROP DATABASE admin;
 CREATE DATABASE admin;
-GO
-USE DB_NAME;
+USE admin;
