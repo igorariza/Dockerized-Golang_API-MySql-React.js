@@ -1,9 +1,6 @@
 # Dockerized-Golang_API-MySql-React.js
 
 
-#### Create .env file following .env.example
-
-
 #### Init:
 
 - `docker-compose build` 
