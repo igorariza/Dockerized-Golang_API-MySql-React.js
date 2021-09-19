@@ -9,12 +9,12 @@ import (
 
 var users = []models.User{
 	models.User{
-		Firstname: "Firstname",
-		Lastname:  "Lastname",
+		Firstname: "C. Ronaldo",
+		Lastname:  "dos Santos Aveiro",
 		Position:  "Position",
 		Nation:    "Nation",
 		Club:      "Club",
-		Page:      "Page",
+		Page:      "1",
 	},
 	models.User{
 		Firstname: "Firstname2",
@@ -22,17 +22,49 @@ var users = []models.User{
 		Position:  "Position2",
 		Nation:    "Nation2",
 		Club:      "Club2",
-		Page:      "Page2",
+		Page:      "1",
+	},
+	models.User{
+		Firstname: "Firstname2",
+		Lastname:  "Lastname2",
+		Position:  "Position2",
+		Nation:    "Nation2",
+		Club:      "Club2",
+		Page:      "1",
+	},
+	models.User{
+		Firstname: "Firstname2",
+		Lastname:  "Lastname2",
+		Position:  "Position2",
+		Nation:    "Nation2",
+		Club:      "Club2",
+		Page:      "1",
+	},
+	models.User{
+		Firstname: "Firstname2",
+		Lastname:  "Lastname2",
+		Position:  "Position2",
+		Nation:    "Nation2",
+		Club:      "Club2",
+		Page:      "1",
+	},
+	models.User{
+		Firstname: "Firstname2",
+		Lastname:  "Lastname2",
+		Position:  "Position2",
+		Nation:    "Nation2",
+		Club:      "Club2",
+		Page:      "1",
 	},
 }
 
 func Load(db *gorm.DB) {
 
-	err := db.Debug().DropTableIfExists(&models.User{}).Error
-	if err != nil {
-		log.Fatalf("cannot drop table: %v", err)
-	}
-	err = db.Debug().AutoMigrate(&models.User{}).Error
+	// err := db.Debug().DropTableIfExists(&models.User{}).Error
+	// if err != nil {
+	// 	log.Fatalf("cannot drop table: %v", err)
+	// }
+	err := db.Debug().AutoMigrate(&models.User{}).Error
 	if err != nil {
 		log.Fatalf("cannot migrate table: %v", err)
 	}

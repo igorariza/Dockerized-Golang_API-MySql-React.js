@@ -31,6 +31,7 @@ RUN apk --no-cache add ca-certificates
 RUN apk update && apk add bash
 RUN /bin/sh -c "apk add --no-cache bash"
 RUN apk --no-cache add curl jq
+RUN apk --no-cache add mysql mysql-client
 
 WORKDIR /root/
 

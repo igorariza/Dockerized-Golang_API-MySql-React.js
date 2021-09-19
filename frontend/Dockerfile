@@ -1,17 +1,17 @@
-FROM node:alpine
+# get the base node image
+FROM node:alpine as builder
 
-
+# set the working dir for container
 WORKDIR /frontend
 
+# copy the json file first
+COPY ./package.json /frontend
 
-COPY ["package.json", "package-lock.json*", "./"]
+# install npm dependencies
+RUN yarn install
 
+# copy other project files
+COPY . .
 
-
-RUN npm i
-
-
-
-EXPOSE 3000
-
-CMD ["npm", "run", "start"]
+# build the folder
+CMD [ "npm", "run", "start" ]
