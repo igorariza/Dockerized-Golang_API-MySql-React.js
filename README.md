@@ -5,7 +5,7 @@
 
 #### Init:
 
-- `docker-compose build` 
+`docker-compose build` 
 
 ### Backend
 Script para extraer información del dataset ubicado en la API de FUT21 y ser agregarda a base de datos para la consulta y modificación.
