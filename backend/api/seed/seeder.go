@@ -16,46 +16,6 @@ var users = []models.User{
 		Club:      "Club",
 		Page:      "1",
 	},
-	models.User{
-		Firstname: "Firstname2",
-		Lastname:  "Lastname2",
-		Position:  "Position2",
-		Nation:    "Nation2",
-		Club:      "Club2",
-		Page:      "1",
-	},
-	models.User{
-		Firstname: "Firstname2",
-		Lastname:  "Lastname2",
-		Position:  "Position2",
-		Nation:    "Nation2",
-		Club:      "Club2",
-		Page:      "1",
-	},
-	models.User{
-		Firstname: "Firstname2",
-		Lastname:  "Lastname2",
-		Position:  "Position2",
-		Nation:    "Nation2",
-		Club:      "Club2",
-		Page:      "1",
-	},
-	models.User{
-		Firstname: "Firstname2",
-		Lastname:  "Lastname2",
-		Position:  "Position2",
-		Nation:    "Nation2",
-		Club:      "Club2",
-		Page:      "1",
-	},
-	models.User{
-		Firstname: "Firstname2",
-		Lastname:  "Lastname2",
-		Position:  "Position2",
-		Nation:    "Nation2",
-		Club:      "Club2",
-		Page:      "1",
-	},
 }
 
 func Load(db *gorm.DB) {

@@ -2,7 +2,6 @@ version: "3.8"
 
 services: 
     backend:
-          image: ubuntu
           container_name: "rest_api"
           restart: on-failure
           build: 
@@ -56,7 +55,7 @@ services:
 volumes:
   backend: 
   api:
-  frontend:
+  #frontend:
 
 networks: 
   fullstack:
