@@ -9,6 +9,7 @@ import (
 )
 
 type User struct {
+	gorm.Model
 	ID        uint32 `gorm:"PRIMARY_KEY;AUTO_INCREMENT" json:"id"`
 	Firstname string `gorm:"size:255" json:"firstName"`
 	Lastname  string `gorm:"size:255" json:"lastName"`
@@ -105,4 +106,11 @@ func (u *User) FindUserByID(db *gorm.DB, uid uint32) (*User, error) {
 		return &User{}, errors.New("User Not Found")
 	}
 	return u, err
+}
+func (u *User) List(db *gorm.DB, pagination Pagination) (*Pagination, error) {
+	users := []User{}
+	db.Scopes(paginate(users, &pagination, db)).Find(&users)
+	pagination.Rows = users
+
+	return &pagination, nil
 }
