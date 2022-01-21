@@ -72,3 +72,16 @@ func (server *Server) GetPlayers(w http.ResponseWriter, r *http.Request) {
 	}
 	responses.JSON(w, http.StatusOK, users)
 }
+
+/* func (server *Server) GetList(w http.ResponseWriter, r *http.Request) {
+
+	user := models.User{}
+
+	users, err := user.List(server.DB)
+	if err != nil {
+		responses.ERROR(w, http.StatusInternalServerError, err)
+		return
+	}
+	responses.JSON(w, http.StatusOK, users)
+}
+*/

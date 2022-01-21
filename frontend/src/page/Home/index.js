@@ -18,7 +18,8 @@ const Home = ({ history }) => {
   };
 
   const handleSearchTextClick  = event => {
-    history.push(`/results?playerName=${searchText}`) 
+    //=cristi&order=asc&page=1
+    history.push(`/api/v1/players?search=${searchText}`) 
   };
 
 
