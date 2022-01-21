@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const baseUrl = 'https://www.easports.com/fifa/ultimate-team/api/fut/item';
+const baseUrl = 'http://localhost:8080/';
 
 export const apiCall = (url, data, headers, method) => axios ({
     method,
-    url: baseUrl +url,
+    url: baseUrl + url,
     headers
 });

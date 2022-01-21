@@ -11,5 +11,6 @@ func (s *Server) initializeRoutes() {
 
 	//s.Router.HandleFunc("/api/v1/team", middlewares.SetMiddlewareJSON(s.CreateUser)).Methods("POST")
 	s.Router.HandleFunc("/api/v1/players", middlewares.SetMiddlewareJSON(s.GetPlayers)).Methods("GET")
+	//s.Router.HandleFunc("/api/v1/player", middlewares.SetMiddlewareJSON(s.GetAllUsers)).Methods("GET")
 
 }
